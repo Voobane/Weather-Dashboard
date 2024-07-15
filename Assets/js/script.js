@@ -1,5 +1,4 @@
-// ./Assets/js/script.js
-const apiKey = 'a5eb2e88e2bbb30aa6b7e6d6d5b57e6';
+const apiKey = '9a5eb2e88e2bbb30aa6b7e6d6d5b57e6';
 const cityForm = document.getElementById('cityForm');
 const cityInput = document.getElementById('cityInput');
 const currentWeather = document.getElementById('currentWeather');
@@ -19,12 +18,13 @@ function saveSearchHistory(city) {
 function renderSearchHistory() {
     searchHistory.innerHTML = '';
     searchHistoryList.forEach(city => {
-        const cityItem = document.createElement('li');
-        cityItem.textContent = city;
-        cityItem.addEventListener('click', () => {
+        const cityButton = document.createElement('button');
+        cityButton.textContent = city;
+        cityButton.classList.add('search-history-button');
+        cityButton.addEventListener('click', () => {
             fetchWeatherData(city);
         });
-        searchHistory.appendChild(cityItem);
+        searchHistory.appendChild(cityButton);
     });
 }
 
