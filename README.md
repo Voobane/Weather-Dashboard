@@ -1,105 +1,115 @@
+# 🌤️ Weather Dashboard
 
-Hosted URL Link: https://voobane.github.io/Weather-Dashboard/
+A browser-based weather application that displays current conditions and a **5-day forecast** for any city in the world. Powered by the **OpenWeatherMap API**, with search history saved to **localStorage** so your recent cities are always one click away.
 
-# 06 Server-Side APIs: Weather Dashboard
+**Live Site:** ------To be added to mmy portfolio website-----
 
-## Your Task
+---
 
-Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+## 📖 Overview
 
-Use the [5 Day Weather Forecast](https://openweathermap.org/forecast5) to retrieve weather data for cities. The base URL should look like the following: `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}`. After registering for a new API key, you may need to wait up to 2 hours for that API key to activate.
+This project focuses on working with a real-world third-party API and browser-native storage. Users search for a city, see live weather data, and can return to any previous search from a persistent history list — all without a backend.
 
-**Hint**: Using the 5 Day Weather Forecast API, you'll notice that you will need to pass in coordinates instead of just a city name. Using the OpenWeatherMap APIs, how could we retrieve geographical coordinates given a city name?
+---
 
-You will use `localStorage` to store any persistent data. For more information on how to work with the OpenWeather API, refer to the [Full-Stack Blog on how to use API keys](https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys).
+## ✨ Features
 
-## User Story
+- 🌍 Search weather for **any city worldwide**
+- 🌡️ Current conditions: temperature, humidity, wind speed, and weather icon
+- 📅 **5-day forecast** with daily conditions at a glance
+- 🕘 Search history saved to **localStorage** — persists across sessions
+- 🔄 Click any city in the history to reload its weather instantly
+- 📱 Responsive layout that works on desktop and mobile
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology         | Purpose                      |
+| ------------------ | ---------------------------- |
+| HTML5 / CSS3       | Structure and styling        |
+| JavaScript (ES6+)  | Application logic            |
+| OpenWeatherMap API | Live weather data            |
+| localStorage       | Client-side data persistence |
+| Day.js             | Date formatting              |
+| Bootstrap          | Responsive UI components     |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- A free [OpenWeatherMap API key](https://openweathermap.org/appid)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Voobane/Weather-Dashboard.git
+cd Weather-Dashboard
+```
+
+### API Key Setup
+
+Open `assets/js/script.js` and replace the placeholder with your API key:
+
+```js
+const apiKey = "YOUR_API_KEY_HERE";
+```
+
+> 💡 For production, store the key server-side or use environment variables. Avoid committing real API keys.
+
+### Running the App
+
+Open `index.html` directly in your browser — no build step required.
+
+---
+
+## 📁 Project Structure
 
 ```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
+Weather-Dashboard/
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── script.js        # API calls, DOM manipulation, localStorage
+├── index.html
+└── README.md
 ```
 
-## Acceptance Criteria
+---
 
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-```
+## 🌐 How It Works
 
-## Mock-Up
+1. User types a city name and submits the form
+2. App calls the **OpenWeatherMap Geocoding API** to get coordinates
+3. Coordinates are passed to the **5-Day Forecast API** to get weather data
+4. Current weather and 5-day cards are rendered to the DOM
+5. The city is saved to **localStorage** and displayed in the history list
+6. Clicking a history item triggers a new API call for that city
 
-The following image shows the web application's appearance and functionality:
+---
 
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./Assets/%20Images/06-server-side-apis-homework-demo.png)
+## 💡 What I Learned
 
-## Grading Requirements
+- Making **chained fetch requests** — converting a city name to coordinates, then using those coordinates in a second API call
+- Parsing and rendering **JSON API responses** to the DOM dynamically
+- Using **localStorage** to persist data between browser sessions
+- Handling **edge cases** like empty input and cities not found
+- Reading and using official **API documentation** to understand endpoints and parameters
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+---
 
-This Challenge is graded based on the following criteria: 
+## 📸 Screenshots
 
-### Technical Acceptance Criteria: 40%
+> _Add screenshots to an `Assets\_Images\Weather Dashboard Preview.jpg` folder and update this section._
 
-* Satisfies all of the above acceptance criteria plus the following:
+---
 
-    * Uses the OpenWeather API to retrieve weather data.
+## 👤 Author
 
-    * Uses `localStorage` to store persistent data.
+**Matt (Voobane)**
 
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a readme describing the project.
-
-- - -
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+- GitHub: [@Voobane](https://github.com/Voobane)
