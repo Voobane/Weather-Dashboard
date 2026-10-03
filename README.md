@@ -104,7 +104,7 @@ Weather-Dashboard/
 
 ## 📸 Screenshots
 
-> _Add screenshots to an `Assets\_Images\Weather Dashboard Preview.jpg` folder and update this section._
+> `Assets\_Images\Weather Dashboard Preview.jpg`
 
 ---
 
